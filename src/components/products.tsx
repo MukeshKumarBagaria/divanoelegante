@@ -39,32 +39,48 @@ export function Products() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="w-full bg-background-light py-24">
-      <h2 className="text-center font-sans text-[40px] font-bold text-primary-text-dark">
-        Products
-      </h2>
+    <section className="w-full bg-background-light py-24 md:py-32">
+      <div className="mx-auto max-w-[1440px] px-6">
+        <div className="flex items-end justify-between gap-6">
+          <div className="max-w-[46ch]">
+            <h2 className="font-heading text-[34px] leading-[1.1] tracking-[-0.01em] text-primary-text-dark md:text-[46px]">
+              Signature pieces
+            </h2>
+            <p className="mt-4 font-sans text-base text-secondary-text-dark md:text-lg">
+              Upholstered to order in the fabric, leather and finish you
+              specify.
+            </p>
+          </div>
 
-      <div className="mt-14 flex items-center gap-4 px-6">
-        <button
-          type="button"
-          aria-label="Previous product"
-          onClick={() => emblaApi?.scrollPrev()}
-          disabled={!canScrollPrev}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-secondary-text-dark transition-colors duration-150 ease hover:bg-surface-light disabled:opacity-25"
-        >
-          <ChevronLeft className="h-6 w-6" strokeWidth={1.5} />
-        </button>
+          <div className="hidden shrink-0 gap-2 md:flex">
+            <button
+              type="button"
+              aria-label="Previous product"
+              onClick={() => emblaApi?.scrollPrev()}
+              disabled={!canScrollPrev}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-borders-light text-primary-text-dark transition-colors duration-150 ease hover:bg-surface-light disabled:opacity-30"
+            >
+              <ChevronLeft className="h-5 w-5" strokeWidth={1.5} />
+            </button>
+            <button
+              type="button"
+              aria-label="Next product"
+              onClick={() => emblaApi?.scrollNext()}
+              disabled={!canScrollNext}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-borders-light text-primary-text-dark transition-colors duration-150 ease hover:bg-surface-light disabled:opacity-30"
+            >
+              <ChevronRight className="h-5 w-5" strokeWidth={1.5} />
+            </button>
+          </div>
+        </div>
 
-        <div className="grid flex-1 grid-cols-12">
-          <div
-            ref={emblaRef}
-            className="col-span-12 overflow-hidden md:col-span-8 md:col-start-3"
-          >
-            <div className="flex gap-6">
+        <div className="mt-12 md:mt-16">
+          <div ref={emblaRef} className="overflow-hidden">
+            <div className="flex gap-5 md:gap-6">
               {products.map((product) => (
                 <div
                   key={product.name}
-                  className="flex-[0_0_100%] sm:flex-[0_0_calc((100%-1.5rem)/2)] md:flex-[0_0_calc((100%-3rem)/3)]"
+                  className="flex-[0_0_82%] sm:flex-[0_0_48%] lg:flex-[0_0_calc((100%-3rem)/3)]"
                 >
                   <div className="rounded-2xl bg-surface-light px-6 pb-8 pt-10">
                     <div className="relative aspect-[4/5]">
@@ -87,7 +103,7 @@ export function Products() {
                           key={filter}
                           type="button"
                           aria-label={`${product.name} colour ${index + 1}`}
-                          className="relative h-12 w-12 overflow-hidden rounded-full bg-background-light transition-shadow duration-150 ease hover:shadow-[0_0_0_1px_var(--borders-light)]"
+                          className="relative h-12 w-12 overflow-hidden rounded-full bg-borders-light transition-shadow duration-150 ease hover:shadow-[0_0_0_1px_var(--borders-light)]"
                         >
                           <Image
                             src={product.image}
@@ -106,16 +122,6 @@ export function Products() {
             </div>
           </div>
         </div>
-
-        <button
-          type="button"
-          aria-label="Next product"
-          onClick={() => emblaApi?.scrollNext()}
-          disabled={!canScrollNext}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-secondary-text-dark transition-colors duration-150 ease hover:bg-surface-light disabled:opacity-25"
-        >
-          <ChevronRight className="h-6 w-6" strokeWidth={1.5} />
-        </button>
       </div>
     </section>
   );

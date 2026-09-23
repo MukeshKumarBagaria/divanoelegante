@@ -9,7 +9,7 @@ export function FactoryVideo() {
     <section className="relative h-dvh w-full overflow-hidden">
       <motion.video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/factory-tour.mp4"
+        src="/video/Factory-video.mp4"
         poster="/hero/hero-2.png"
         autoPlay
         muted
@@ -26,12 +26,12 @@ export function FactoryVideo() {
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black/85 via-black/45 to-transparent"
       />
 
-      <div className="absolute inset-x-0 bottom-0 flex justify-center px-6 pb-10">
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 px-6 pb-12 text-center">
         <motion.h2
-          className="whitespace-nowrap text-center text-[15px] font-light uppercase tracking-widest text-primary-text-light sm:text-[22px] md:text-[32px] lg:text-[44px]"
+          className="max-w-[18ch] text-balance font-heading text-[32px] leading-[1.08] tracking-[-0.01em] text-primary-text-light sm:text-[42px] md:text-[54px] lg:text-[64px]"
           initial={{
             opacity: 0,
             transform: reduceMotion ? "translateY(0px)" : "translateY(24px)",
@@ -40,8 +40,22 @@ export function FactoryVideo() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1], delay: 0.15 }}
         >
-          From Our Factory to Your Space
+          Built In-House, From Frame to Finish
         </motion.h2>
+
+        <motion.p
+          className="max-w-xl text-balance font-sans text-sm text-primary-text-light/80 md:text-base"
+          initial={{
+            opacity: 0,
+            transform: reduceMotion ? "translateY(0px)" : "translateY(16px)",
+          }}
+          whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1], delay: 0.3 }}
+        >
+          Our own factory, our own craftsmen — every piece is checked by the
+          people who made it before it reaches you.
+        </motion.p>
       </div>
     </section>
   );
