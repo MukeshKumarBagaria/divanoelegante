@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Newsreader, Manrope, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/navbar";
+import { TopBar } from "@/components/top-bar";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${newsreader.variable} ${manrope.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <TopBar />
         <Navbar />
         <main className="flex-1">{children}</main>
         <SiteFooter />
