@@ -21,15 +21,17 @@ export function FactoryVideo() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="mt-40 w-full bg-[#FFF2F2] py-6">
-      <div className="grid grid-cols-12 px-6">
-        <div className="col-span-12 md:col-span-8 md:col-start-3">
+    <section id="factory" className="mt-40 w-full scroll-mt-24">
+      <div className="mx-auto max-w-[1440px] px-6">
+        <div className="rounded-3xl bg-[#FFF2F2] p-8 md:p-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.5fr] md:gap-12">
             <motion.div
               className="flex flex-col"
               initial={{
                 opacity: 0,
-                transform: reduceMotion ? "translateY(0px)" : "translateY(24px)",
+                transform: reduceMotion
+                  ? "translateY(0px)"
+                  : "translateY(24px)",
               }}
               whileInView={{ opacity: 1, transform: "translateY(0px)" }}
               viewport={{ once: true, amount: 0.4 }}
@@ -52,7 +54,7 @@ export function FactoryVideo() {
                 </Link>
               </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-4 md:mt-auto">
+              <div className="mt-8 grid grid-cols-2 gap-4">
                 {features.map((feature) => (
                   <div
                     key={feature.label}

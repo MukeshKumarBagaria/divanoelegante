@@ -32,44 +32,42 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 mb-4 border-b border-borders-light bg-background-light">
-      <div className="relative grid grid-cols-12 px-6 pb-3 pt-6">
-        <div className="col-span-12 flex items-center justify-end md:col-span-8 md:col-start-3 md:justify-center">
-          <nav className="hidden items-center gap-6 md:flex">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={cn(
-                    "relative py-1 font-sans text-sm text-secondary-text-dark transition-colors duration-150 ease hover:text-secondary-text-dark/70",
-                    isActive && "font-medium",
-                  )}
-                >
-                  {link.label}
-                  {isActive ? (
-                    <span className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-brand" />
-                  ) : null}
-                </Link>
-              );
-            })}
-          </nav>
+      <div className="relative mx-auto flex max-w-[1440px] items-center justify-end px-6 pb-3 pt-6 md:justify-center">
+        <nav className="hidden items-center gap-6 md:flex">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={cn(
+                  "relative py-1 font-sans text-sm text-secondary-text-dark transition-colors duration-150 ease hover:text-secondary-text-dark/70",
+                  isActive && "font-medium",
+                )}
+              >
+                {link.label}
+                {isActive ? (
+                  <span className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-brand" />
+                ) : null}
+              </Link>
+            );
+          })}
+        </nav>
 
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((open) => !open)}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-borders-light text-primary-text-dark transition-colors duration-150 ease md:hidden"
-          >
-            {isMenuOpen ? (
-              <X className="h-5 w-5" strokeWidth={1.75} />
-            ) : (
-              <Menu className="h-5 w-5" strokeWidth={1.75} />
-            )}
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-borders-light text-primary-text-dark transition-colors duration-150 ease md:hidden"
+        >
+          {isMenuOpen ? (
+            <X className="h-5 w-5" strokeWidth={1.75} />
+          ) : (
+            <Menu className="h-5 w-5" strokeWidth={1.75} />
+          )}
+        </button>
       </div>
 
       {isMenuOpen ? (

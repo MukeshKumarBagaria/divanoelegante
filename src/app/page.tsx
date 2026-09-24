@@ -3,8 +3,8 @@ import { FactoryVideo } from "@/components/factory-video";
 import { PromoBanner } from "@/components/promo-banner";
 import { Products } from "@/components/products";
 import { ErgonomicSitting } from "@/components/ergonomic-sitting";
-import { Manufacturing } from "@/components/manufacturing";
 import { BoothBento } from "@/components/booth-bento";
+import { ConsultationBand } from "@/components/consultation-band";
 
 export default function Home() {
   return (
@@ -12,10 +12,10 @@ export default function Home() {
       <Hero />
       <FactoryVideo />
       <PromoBanner />
-      <Manufacturing />
       <Products />
       <BoothBento />
       <ErgonomicSitting />
+      <ConsultationBand />
     </>
   );
 }

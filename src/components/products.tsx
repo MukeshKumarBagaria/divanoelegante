@@ -39,7 +39,7 @@ export function Products() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="w-full bg-background-light py-24 md:py-32">
+    <section id="products" className="w-full scroll-mt-24 bg-background-light py-24 md:py-32">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="flex items-end justify-between gap-6">
           <div className="max-w-[46ch]">
